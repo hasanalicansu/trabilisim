@@ -48,20 +48,17 @@ export const onData = (data) => {
           const x = asLocal[i];
           if (x[0] == tmp[0] && data[1].a.length == 1) {
             //Update/insert message-----AS'için Aynı fiyattan ürün var ve volume 0 değil ise volume'ü günceller
-
             asLocal.splice(counterAs, 1, tmp); //sil ve yerine koy
             dispatch({type: GET_AS_DATA, payload: asLocal});
             break;
           } else if (x[0] == tmp[0] && data[1].a.length == 2) {
             // Delete/insert message-----AS'için Aynı fiyattan ürün var ve volume 0 ise eski ürünü siler yeni geleni sıralamaya göre yerleştiri
-
             asLocal.splice(counterAs, 1); //sadece volume'ü sıfır olanı sil
             asLocal = await smallToLargeVolZero(asLocal, data[1].a[1]);
             dispatch({type: GET_AS_DATA, payload: asLocal});
             break;
           } else if (tmp[1] != '0.00000000') {
             //insert message-----AS'için Aynı fiyattan ürün yoksa küçükten büyüğe sıralama için büyüğü siler, yeni geleni sıralamaya göre yerleştiri
-
             asLocal = await smallToLargeNotMatched(asLocal, tmp);
             dispatch({type: GET_AS_DATA, payload: asLocal});
             break;
