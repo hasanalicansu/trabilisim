@@ -34,7 +34,7 @@ export const onData = (data) => {
         dispatch({type: GET_BS_DATA, payload: bsLocal});
       }
     } else if (counter > 0) {
-      
+      //güncelleme,ekleme,silme olayları gerçekleşir
       data = JSON.parse(data);
       if (data.event == 'heartbeat') {
         console.log(
