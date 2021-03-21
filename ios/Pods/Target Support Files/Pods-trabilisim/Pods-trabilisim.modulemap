@@ -1,0 +1,6 @@
+module Pods_trabilisim {
+  umbrella header "Pods-trabilisim-umbrella.h"
+
+  export *
+  module * { export * }
+}
