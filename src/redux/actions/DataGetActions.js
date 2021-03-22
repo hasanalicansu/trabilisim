@@ -6,18 +6,6 @@ let counter = 0;
 let asLocal = [];
 let bsLocal = [];
 
-export const getData = () => {
-  return dispatch => {
-    socket.onopen = () => {
-      socket.send(
-        '{"event":"subscribe", "subscription":{"depth":10,"name":"book"}, "pair":["XBT/USD"]}',
-      );
-    };
-  };
-};
-
-
-
 export const onData = (data) => {
   return async dispatch => {
     if (counter == 0) {
