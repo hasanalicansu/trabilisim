@@ -1,6 +1,5 @@
 import {GET_AS_DATA, GET_BS_DATA, GET_DATA} from './types';
 import _ from 'lodash';
-const socket = new WebSocket('wss://ws.kraken.com');
 
 let counter = 0;
 let asLocal = [];
